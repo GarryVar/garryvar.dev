@@ -1,0 +1,32 @@
+{
+  "name": "search-music",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "gulpfile.js",
+  "scripts": {
+    "build": "gulp css",
+    "start": "gulp start"
+  },
+  "author": "garyvar",
+  "license": "ISC",
+  "dependencies": {
+    "browser-sync": "^2.23.7",
+    "del": "^7.0.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^9.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-csso": "^4.0.1",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-terser": "^2.1.0",
+    "sass": "^1.62.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.14",
+    "gulp-imagemin": "^9.0.0",
+    "gulp-postcss": "^9.0.1",
+    "postcss": "^8.4.23"
+  }
+}
