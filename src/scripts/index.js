@@ -20,6 +20,13 @@ const {
 
 const resultContainer = document.querySelector('.catalog__list');
 const loading = document.querySelector('.loading');
+
+const onSubmitStart = () => {
+  loading.innerHTML = `<span class="loading__loader"></span>
+                       <span>Loading...</span>`
+};
+
+
 const render = (item) => {
   loading.innerHTML = '';
 
@@ -38,13 +45,7 @@ const render = (item) => {
 };
 
 
-
-const onSubmitStart = () => {
-  loading.innerHTML = `<span class="loading__loader"></span>
-                       <span>Loading...</span>`
-};
-
-
+q
 
 const getRelease = async (evt) => {
 
