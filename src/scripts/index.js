@@ -1,7 +1,12 @@
+const resultContainer = document.querySelector(`.catalog__list`);
+const loading = document.querySelector(`.loading`);
+const navList = document.querySelector(`.nav__list`);
+
+
 const searchParams = {
-  url: 'https://api.discogs.com/database/',
+  url: `https://api.discogs.com/database/`,
   token: {
-    secret: 'mNHcAvOinUcwHakAVnJbLZDKTHMXfogm',
+    secret: `mNHcAvOinUcwHakAVnJbLZDKTHMXfogm`,
     key: 'vDFrSJVinLBdseXePtFc'
   },
   param: {
@@ -18,43 +23,43 @@ const {
 } = searchParams;
 
 
-const resultContainer = document.querySelector('.catalog__list');
-const loading = document.querySelector('.loading');
+
+const onSubmitLoading = () => {
+  loading.innerHTML =
+    `<span class="loading__loader"></span>`;
+};
+
+
 const render = (item) => {
+
   loading.innerHTML = '';
 
-  const li = document.createElement('li');
+  const li = document.createElement(`li`);
   li.classList.add(`catalog__item`);
-  li.innerHTML = `<div class="catalog__img-wrap">
-                    <img
-                        src="${item['cover_image']}"
-                        width="190" height="190"
-                        alt="${item['title']}"
-                        loading="lazy">
-                  </div>
-                  <h2>${item['title']}</h2>`
+  li.innerHTML =
+    `<div class="catalog__img-wrap">
+      <img
+      src="${item['cover_image']}"
+      width="190" height="190"
+      alt="${item['title']}"
+      loading="lazy">
+    </div>
+    <h2>${item['title']}</h2>`
 
   return li;
 };
 
 
-
-const onSubmitStart = () => {
-  loading.innerHTML = `<span class="loading__loader"></span>
-                       <span>Loading...</span>`
-};
-
-
-
-const getRelease = async (evt) => {
+const getRelease = async (style) => {
 
   try {
-    evt.preventDefault();
-    onSubmitStart();
+    // evt.preventDefault();
 
-    const searchValue = evt.target.elements[`searchInput`].value;
+    onSubmitLoading();
 
-    const resp = await fetch(`${url}search?q=${searchValue}&key=${key}&secret=${secret}`);
+    // const searchValue = evt.target.elements[`searchInput`].value;
+
+    const resp = await fetch(`${url}search?q=${style}&key=${key}&secret=${secret}`);
     let data = await resp.json();
 
     const {pagination, results} = data;
@@ -70,16 +75,32 @@ const getRelease = async (evt) => {
 };
 
 
-const onSubmit = (evt) => {
-  resultContainer.innerHTML = ``;
-  onSubmitStart();
-  getRelease(evt).then(d => d);
+const onSubmit = (style) => {
+  resultContainer.innerHTML = '';
+  loading.innerHTML = '';
+
+  onSubmitLoading();
+  getRelease(style).then(d => d);
 }
 
 document.querySelector('form').addEventListener('submit', onSubmit);
 
 
+navList.addEventListener(`click`, (evt) => {
+  evt.preventDefault();
+  let style = evt.target.textContent;
+  let searchInput = document.getElementById(`searchInput`);
 
+  searchInput.value = style;
+  onSubmit(style);
+});
 
+async function ff () {
+  let resp = await fetch(`https://api.discogs.com/database/search?q=acid&key=${key}&secret=${secret}&page=200&per_page=50`)
+  let res = await resp.json();
+
+}
+
+ff().then(d => d)
 
 
