@@ -50,8 +50,6 @@ const getResult = async (evt) => {
     const data = await resp.json();
     const {pagination, results} = data;
 
-    console.log(results);
-
     results.forEach(res => resultContainer.appendChild(renderTemplate(res)));
 
     return results;
@@ -73,7 +71,6 @@ const showResource = async (url) => {
   try {
     const resp = await fetch(url);
     const data = await resp.json();
-    console.log(data);
     return data;
   } catch (err) {
     console.log(`Ошибка ${err}`)
@@ -92,6 +89,22 @@ catalog.addEventListener('click', showDetailsPage);
 
 
 
+/*navigation*/
 
+const nav = document.querySelector('.nav');
+const toggle = document.querySelector('.toggle');
+const burgerIcon = document.querySelector('.toggle__icon');
 
+const toggleStates = (elem, selector) => {
+  !elem.classList.contains(selector) ? elem.classList.add(selector) : elem.classList.remove(selector);
+}
+toggleStates(nav, 'hidden');
 
+const onToggleNavigation = evt => {
+  evt.preventDefault();
+
+  toggleStates(nav, 'hidden');
+  Array.from(burgerIcon.children).forEach(item => toggleStates(item,'hidden'))
+};
+
+toggle.addEventListener('click', onToggleNavigation);
