@@ -1,55 +1,56 @@
 .search__form {
-  width: auto;
-  height: 40px;
-
-  display: grid;
-  grid-template-columns: 1fr min-content;
-  align-items: center;
-  padding-right: 5px;
-
-  border-radius: 10px;
-  overflow: hidden;
-  background-color: $white;
-
-  & input[type="search"] {
-    width: 100%;
+    width: auto;
     height: 40px;
 
-    padding-left: 10px;
-    border-radius: 10px;
-    border: 0;
-    font-family: inherit;
-    font-size: 16px;
-
-    &::placeholder {
-      font-family: inherit;
-    }
-  }
-
-  & button[type="submit"] {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr min-content;
+    column-gap: 10px;
     align-items: center;
-    justify-content: center;
+    padding-right: 5px;
 
     border-radius: 10px;
-    //background-color: #e20000;
+    overflow: hidden;
+    background-color: $white;
 
-    color: #ffffff;
-    font-family: inherit;
-    font-size: 16px;
-    font-weight: 300;
-    width: 30px;
-    height: 30px;
+    & input[type="text"] {
+        width: 100%;
+        height: 40px;
 
-    &:focus,
-    &:hover {
-      background-color: lightgrey;
+        padding-left: 10px;
+        border-radius: 10px;
+        border: 0;
+        font-family: inherit;
+        font-size: 16px;
+
+        &::placeholder {
+            font-family: inherit;
+        }
     }
-  }
+
+    & button[type="submit"] {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 10px;
+        //background-color: #e20000;
+
+        color: #ffffff;
+        font-family: inherit;
+        font-size: 16px;
+        font-weight: 300;
+        width: 30px;
+        height: 30px;
+
+        &:focus,
+        &:hover {
+            background-color: lightgrey;
+        }
+    }
 }
 
 .search__icon-shape {
-  fill: #757575;
+    fill: #757575;
 }
 
 
