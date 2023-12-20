@@ -96,7 +96,9 @@ const toggle = document.querySelector('.toggle');
 const burgerIcon = document.querySelector('.toggle__icon');
 
 const toggleStates = (elem, selector) => {
-  !elem.classList.contains(selector) ? elem.classList.add(selector) : elem.classList.remove(selector);
+  !elem.classList.contains(selector) ?
+    elem.classList.add(selector) :
+    elem.classList.remove(selector);
 }
 toggleStates(nav, 'hidden');
 
@@ -104,7 +106,8 @@ const onToggleNavigation = evt => {
   evt.preventDefault();
 
   toggleStates(nav, 'hidden');
-  Array.from(burgerIcon.children).forEach(item => toggleStates(item,'hidden'))
+  Array.from(burgerIcon.children)
+    .forEach(item => toggleStates(item,'hidden'))
 };
 
 toggle.addEventListener('click', onToggleNavigation);
