@@ -18,7 +18,7 @@ body {
     min-height: 100vh;
     //font-family: 'Quicksand', sans-serif;
     font-family: system-ui, sans-serif;
-    background-color: #000000;
+    background-color: $black;
 }
 
 img {
@@ -90,20 +90,8 @@ main {
     display: none;
 }
 
-
-.navButton {
-    margin-right: 10px;
-    width: 40px;
-    height: 40px;
-
-    background-color: red;
-}
-
 @media(min-width: 768px) {
     .hidden {
         display: block;
-    }
-    .navButton {
-        display: none;
     }
 }

@@ -1,7 +1,7 @@
 .header {
   position: sticky;
   top: 0;
-  background-color: #181818;
+  background-color: $main-border;
   z-index: 1;
 }
 
@@ -41,7 +41,7 @@
   width: 100%;
   grid-area: nav;
 
-  background-color: #252424;
+  background-color: $color-nav;
   border-radius: 10px;
   overflow: hidden;
 

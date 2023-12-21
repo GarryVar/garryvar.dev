@@ -31,15 +31,16 @@
         align-items: center;
         justify-content: center;
 
-        border-radius: 10px;
-        //background-color: #e20000;
+        width: 30px;
+        height: 30px;
 
-        color: #ffffff;
+        border-radius: 10px;
+
+        color: $white;
         font-family: inherit;
         font-size: 16px;
         font-weight: 300;
-        width: 30px;
-        height: 30px;
+
 
         &:focus,
         &:hover {
@@ -49,7 +50,7 @@
 }
 
 .search__icon-shape {
-    fill: #757575;
+    fill: $gray;
 }
 
 
